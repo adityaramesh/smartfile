@@ -245,11 +245,11 @@ endfunction
 function! s:ApplySettings(rule, event)
 	if has_key(g:smartfile_rules[a:rule], "comments")
 		let s = g:smartfile_rules[a:rule]["comments"]
-		exe "au " . a:event . " set comments=" . s
+		exe "au " . a:event . " setlocal comments=" . s
 	endif
 	if has_key(g:smartfile_rules[a:rule], "indent")
 		let s = g:smartfile_rules[a:rule]["indent"]
-		exe "au " . a:event . " set " . s
+		exe "au " . a:event . " setlocal " . s
 	endif
 endfunction
 
