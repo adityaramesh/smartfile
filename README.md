@@ -77,4 +77,54 @@ complete set of header format flags is tabulated below.
 		<td>a</td>
 		<td>Author</td>
 	</tr>
+	<tr>
+		<td>b</td>
+		<td>Body</td>
+	</tr>
+	<tr>
+		<td>c</td>
+		<td>Contact</td>
+	</tr>
+	<tr>
+		<td>d</td>
+		<td>Date</td>
+	</tr>
+	<tr>
+		<td>f</td>
+		<td>File Name</td>
+	</tr>
+	<tr>
+		<td>h</td>
+		<td>Header</td>
+	</tr>
+	<tr>
+		<td>n</td>
+		<td>Newline</td>
+	</tr>
+	<tr>
+		<td>t</td>
+		<td>Footer</td>
+	</tr>
+	<tr>
+		<td>w</td>
+		<td>Website</td>
+	</tr>
 </table>
+
+In order to modify the names of existing header format flags or define your own,
+place an entry for the corresponding key in `g:sf_names`. To modify the behavior
+of an existing flag or define the behavior of a new flag, place an entry for the
+corresponding key in `g:sf_values`.
+
+Automatically creating file headers is only one of many actions that Smartfile
+is capable of taking. Each filetype that Smartfile supports has a default set of
+actions stored in a dictionary called `g:smartfile_rules` in
+`plugin/smartfile.vim`. If you wish to modify existing rules or add your own, I
+suggest that you study the structure of this dictionary. However, instead of
+modifying `g:smartfile_rules` directly, modify `g:sf_rules` in your `.vimrc`.
+Entries places in `g:sf_rules` override those defined in `g:smartfile_rules`, so
+that upgrading to a newer version of Smartfile will not destroy any of your
+modifications. That said, if you feel that any modifications you have made would
+benefit others by being incorporated into the default behavior of Smartfile, I
+encourage you to submit a pull request. Suggestions and improvements are always
+welcome!
