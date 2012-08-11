@@ -63,6 +63,18 @@ of knowing what to put in the headers it will automatically create for you.
 
 To learn more about the DSL for `g:sf_dateformat`, see `help:strftime`. The DSL
 for `g:sf_headerformat` is of my own invention, and in general is an
-alphanumeric sequence. Each letter pastes a global variable or causes the
-execution of some method. A number _n_ before a letter indicates that the result
-of evaluating the next letter should be appended _n_ times.
+alphanumeric sequence. Each letter, or _flag_, pastes a global variable or
+causes the execution of some method. A number _n_ before a flag indicates that
+the result of evaluating the next flag should be appended _n_ times. The
+complete set of header format flags is tabulated below.
+
+<table>
+	<tr>
+		<th>Flag</th>
+		<th>Meaning</th>
+	</tr>
+	<tr>
+		<td>a</td>
+		<td>Author</td>
+	</tr>
+</table>
