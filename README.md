@@ -30,3 +30,23 @@ Smartfile comes with predefined utilities for several common tasks, and can be
 extended to perform more specialized tasks. This system makes defining behaviors
 for new files types an enjoyable experience, rather than something that seems to
 impede your workflow.
+
+## Installation
+
+This package requires Vundle. If you do not have Vundle installed already, you
+can get it [here](https://github.com/gmarik/vundle/). Just add
+
+	Bundle 'adityaramesh/smartfile'
+
+to your list of repositories in `.vimrc`. The next time you start up Vim, use
+`:BundleInstall` to have Vundle install Smartfile.
+
+## Uninstallation
+
+Remove
+
+	Bundle 'adityaramesh/smartfile'
+
+from your `.vimrc`, and remove `~/.vim/bundle/smartfile`.
+
+## Setup
