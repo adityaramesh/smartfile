@@ -166,12 +166,12 @@ let g:smartfile_rules =
 \ 	"markdown":
 \ 	{
 \		"filetypes":["*.md"],
-\		"comments":"s0:<!--,mb:  **,ex:-->",
+\		"comments":"s0:<!--,mb:\ \ **,ex:-->",
 \		"header":
 \		"smartfile#CreateHeader(
 \			g:smartfile_flag_names,
 \			g:smartfile_flag_values,
-\			g:sf_headerformat, '<!--','  **', '-->'
+\			g:sf_headerformat, '<!--', '  **', '-->'
 \		)",
 \		"template":"h2n"
 \ 	},
