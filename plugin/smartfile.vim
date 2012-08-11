@@ -171,7 +171,7 @@ let g:smartfile_rules =
 \		"smartfile#CreateHeader(
 \			g:smartfile_flag_names,
 \			g:smartfile_flag_values,
-\			g:sf_headerformat, '/*', '**', '*/'
+\			g:sf_headerformat, '<!--','  **', '-->'
 \		)",
 \		"template":"h2n"
 \ 	},
