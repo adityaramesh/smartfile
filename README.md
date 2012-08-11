@@ -50,3 +50,19 @@ Remove
 from your `.vimrc`, and remove `~/.vim/bundle/smartfile`.
 
 ## Setup
+
+To take advantage of the default rules that are already defined by Smartfile,
+you need to give it some of your personal information. Otherwise, it has no way
+of knowing what to put in the headers it will automatically create for you.
+
+	let g:sf_author = "John Snow"
+	let g:sf_contact = "get@thehelloffmylawn.com"
+	let g:sf_dateformat = "%m/%d/%Y"
+	let g:sf_website = "hello.com"
+	let g:sf_headerformat = "fadc"
+
+To learn more about the DSL for `g:sf_dateformat`, see `help:strftime`. The DSL
+for `g:sf_headerformat` is of my own invention, and in general is an
+alphanumeric sequence. Each letter pastes a global variable or causes the
+execution of some method. A number _n_ before a letter indicates that the result
+of evaluating the next letter should be appended _n_ times.
