@@ -34,6 +34,15 @@ let g:smartfile_loaded = 1
 let s:savecpo = &cpo
 set cpo&vim
 
+"
+" This is a dictionary that is used to interpret the DSL for file headers. The
+" keys are the abbreviations that are used in the DSL, and the values are the
+" names of the fields that actually appear in the file type header, each
+" followed by a colon. Entries in g:sf_names, g:sf_values, and g:sf_rules
+" override those that are given in this file. The intent is for the end user to
+" provide personal information by adding entries to the three aforementioned
+" variables.
+"
 let g:smartfile_flag_names =
 \ {
 \	"a":"Author",
@@ -47,6 +56,14 @@ let g:smartfile_flag_names =
 \	"w":"Website"
 \ }
 
+"
+" This dictionary is a mapping from file header DSL flags to pieces of code that
+" are lazily evaluated each time a specific flag is mentioned. As we iterate
+" through all of the flags in the DSL string used to construct the header for
+" each filetype, we append the result of executing the code corresponding to
+" each DSL flag to the end of a string. After the procedure terminates, the
+" string will contain the file header.
+"
 let g:smartfile_flag_values =
 \ {
 \	"a":"g:sf_author",
@@ -60,6 +77,10 @@ let g:smartfile_flag_values =
 \	"w":"g:sf_website"
 \ }
 
+"
+" This is the main dictionary of rules that are defined for each file type. Each
+" rule maps a filetype to a set of event-action pairs.
+"
 let g:smartfile_rules =
 \ {
 \ 	"asm":
@@ -142,6 +163,18 @@ let g:smartfile_rules =
 \		)",
 \		"template":"h2n"
 \ 	},
+\ 	"markdown":
+\ 	{
+\		"filetypes":["*.md"],
+\		"comments":"s0:<!--,mb:  **,ex:-->",
+\		"header":
+\		"smartfile#CreateHeader(
+\			g:smartfile_flag_names,
+\			g:smartfile_flag_values,
+\			g:sf_headerformat, '/*', '**', '*/'
+\		)",
+\		"template":"h2n"
+\ 	},
 \ 	"readme":
 \ 	{
 \		"filetypes":["{README,readme}"],
@@ -182,6 +215,9 @@ let g:smartfile_rules =
 \	}
 \ }
 
+"
+" These following functions are dispatched by s:ApplyRule().
+"
 function! s:CreateHeader(rule)
 	if !has_key(g:smartfile_rules[a:rule], "header")
 		throw "Smartfile: rule " . a:rule . " has no 'header' key."
@@ -237,6 +273,11 @@ function! GenerateTemplate(rule)
 	exe ":d"
 endfunction
 
+"
+" This function takes an input a rule dictionary (like g:smartfile_rules), and
+" executes all of the rules. This has no immediate effect, since the purpose of
+" all of the rules is to set up autocommand groups.
+"
 function! s:ApplyRule(rule)
 	exe "augroup " . " smartfile_" . a:rule . "_group"
 	if !has_key(g:smartfile_rules, a:rule)
@@ -266,6 +307,10 @@ function! s:ApplyRule(rule)
 	augroup end
 endfunction
 
+"
+" These functions keep the promise that any settings defined in the .vimrc file
+" will override those in the g:smartile_rules dictionary.
+"
 if exists("g:sf_names")
 	for key in keys(g:sf_names)
 		g:smartfile_flag_names[key] = g:sf_names[key]
