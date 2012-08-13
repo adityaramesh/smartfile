@@ -166,7 +166,7 @@ let g:smartfile_rules =
 \ 	"markdown":
 \ 	{
 \		"filetypes":["*.md"],
-\		"comments":"s0:<!--,mb:\ \ **,ex:-->",
+\		"comments":"s0:<!--,mb:\\ \\ **,ex:-->",
 \		"header":
 \		"smartfile#CreateHeader(
 \			g:smartfile_flag_names,

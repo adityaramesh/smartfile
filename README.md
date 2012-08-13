@@ -55,7 +55,7 @@ To take advantage of the default rules that are already defined by Smartfile,
 you need to give it some of your personal information. Otherwise, it has no way
 of knowing what to put in the headers it will automatically create for you.
 
-	let g:sf_author = "John Snow"
+	let g:sf_author = "Jon Snow"
 	let g:sf_contact = "get@thehelloffmylawn.com"
 	let g:sf_dateformat = "%m/%d/%Y"
 	let g:sf_website = "hello.com"
