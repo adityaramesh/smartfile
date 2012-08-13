@@ -34,12 +34,7 @@ impede your workflow.
 ## Installation
 
 This package requires Vundle. If you do not have Vundle installed already, you
-can get it [here](https://github.com/gmarik/vundle/). After that, clone into
-this repository using
-
-	git clone https://github.com/adityaramesh/smartfile.git
-
-Then, add
+can get it [here](https://github.com/gmarik/vundle/). Then, add
 
 	Bundle 'adityaramesh/smartfile'
 
