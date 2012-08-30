@@ -154,7 +154,7 @@ let g:smartfile_rules =
 \ 	{
 \ 		"extensions":["*.less"],
 \ 		"filetype":"css",
-\ 		"comments":"s0:/*,mb:**,ex:*/",
+\ 		"comments":"s0:/*,mb:**,ex:*/,b://",
 \ 		"indent":"autoindent",
 \ 		"header":
 \ 		"smartfile#CreateHeader(
