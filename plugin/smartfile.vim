@@ -85,7 +85,7 @@ let g:smartfile_rules =
 \ {
 \ 	"asm":
 \ 	{
-\ 		"filetypes":["*.s"],
+\ 		"extensions":["*.s"],
 \ 		"comments":"b:;",
 \ 		"indent":"autoindent",
 \ 		"header":
@@ -98,7 +98,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"cpp":
 \ 	{
-\ 		"filetypes":["*.{cc,cxx,cpp}"],
+\ 		"extensions":["*.{cc,cxx,cpp}"],
 \ 		"comments":"s0:/*,mb:**,ex:*/,b://",
 \ 		"indent":"cindent",
 \ 		"header":
@@ -111,7 +111,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"css":
 \ 	{
-\ 		"filetypes":["*.css"],
+\ 		"extensions":["*.css"],
 \ 		"comments":"s0:/*,mb:**,ex:*/",
 \ 		"indent":"autoindent",
 \ 		"header":
@@ -124,7 +124,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"cuda":
 \ 	{
-\		"filetypes":["*.cuda"],
+\		"extensions":["*.cuda"],
 \		"comments":"s0:/*,mb:**,ex:*/,b://",
 \		"indent":"cindent",
 \		"header":
@@ -137,7 +137,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"hpp":
 \ 	{
-\ 		"filetypes":["*.{h,hh,hpp,hxx}"],
+\ 		"extensions":["*.{h,hh,hpp,hxx}"],
 \ 		"comments":"s0:/*,mb:**,ex:*/,b://",
 \ 		"indent":"cindent",
 \ 		"header":
@@ -152,7 +152,8 @@ let g:smartfile_rules =
 \ 	},
 \ 	"less":
 \ 	{
-\ 		"filetypes":["*.less"],
+\ 		"extensions":["*.less"],
+\ 		"filetype":"css",
 \ 		"comments":"s0:/*,mb:**,ex:*/",
 \ 		"indent":"autoindent",
 \ 		"header":
@@ -165,7 +166,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"make":
 \ 	{
-\		"filetypes":["{Makefile,makefile}"],
+\		"extensions":["{Makefile,makefile}"],
 \		"comments":"b:#",
 \		"indent":"autoindent",
 \		"header":
@@ -178,7 +179,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"markdown":
 \ 	{
-\		"filetypes":["*.md"],
+\		"extensions":["*.md"],
 \		"comments":"s0:<!--,mb:\\ \\ **,ex:-->",
 \		"header":
 \		"smartfile#CreateHeader(
@@ -190,7 +191,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"readme":
 \ 	{
-\		"filetypes":["{README,readme}"],
+\		"extensions":["{README,readme}"],
 \		"comments":"s0:/*,mb:**,ex:*/,b://",
 \		"header":
 \ 		"smartfile#CreateHeader(
@@ -202,7 +203,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"tex":
 \ 	{
-\ 		"filetypes":["*.tex"],
+\ 		"extensions":["*.tex"],
 \ 		"comments":"b:%",
 \ 		"indent":"autoindent",
 \ 		"header":
@@ -215,7 +216,7 @@ let g:smartfile_rules =
 \ 	},
 \	"vim":
 \	{
-\		"filetypes":["*.vim"],
+\		"extensions":["*.vim"],
 \		"comments":"b:\\\",b:\\",
 \		"indent":"autoindent",
 \		"header":
@@ -299,7 +300,11 @@ function! s:ApplyRule(rule)
 	if !has_key(g:smartfile_rules, a:rule)
 		throw "Smartfile: no key 'filetype' for rule " . a:rule . "."
 	endif
-	for ft in g:smartfile_rules[a:rule]["filetypes"]
+	for ft in g:smartfile_rules[a:rule]["extensions"]
+		if has_key(g:smartfile_rules[a:rule], "filetype")
+			let s = g:smartfile_rules[a:rule]["filetype"]
+			exe "au BufEnter " . ft . " setlocal ft=" . s
+		endif
 		if has_key(g:smartfile_rules[a:rule], "comments")
 			let s = g:smartfile_rules[a:rule]["comments"]
 			exe "au BufEnter " . ft . " setlocal comments=" . s
