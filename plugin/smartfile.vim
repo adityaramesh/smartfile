@@ -85,7 +85,7 @@ let g:smartfile_rules =
 \ {
 \ 	"asm":
 \ 	{
-\ 		"extensions":["*.s"],
+\ 		"extensions":["*.{asm,s}"],
 \ 		"comments":"b:;",
 \ 		"indent":"autoindent",
 \ 		"header":
@@ -166,7 +166,7 @@ let g:smartfile_rules =
 \ 	},
 \ 	"make":
 \ 	{
-\		"extensions":["{Makefile,makefile}"],
+\		"extensions":["{*.mk,Makefile,makefile}"],
 \		"comments":"b:#",
 \		"indent":"autoindent",
 \		"header":
