@@ -150,6 +150,19 @@ let g:smartfile_rules =
 \ 		"template":"hnb",
 \		"carat":"?define\<cr>2j"
 \ 	},
+\ 	"js":
+\ 	{
+\		"extensions":["*.js"],
+\ 		"comments":"s0:/*,mb:**,ex:*/,b://",
+\ 		"indent":"autoindent",
+\ 		"header":
+\ 		"smartfile#CreateHeader(
+\ 			g:smartfile_flag_names,
+\ 			g:smartfile_flag_values,
+\ 			g:sf_headerformat, '/*', '**', '*/'
+\ 		)",
+\ 		"template":"h2n"
+\ 	},
 \ 	"less":
 \ 	{
 \ 		"extensions":["*.less"],
