@@ -214,6 +214,19 @@ let g:smartfile_rules =
 \ 		)",
 \ 		"template":"h2n"
 \ 	},
+\	"ruby":
+\	{
+\		"extensions":["*.rb"],
+\		"comments":"b:#",
+\		"indent":"autoindent",
+\		"header":
+\		"smartfile#CreateHeader(
+\			g:smartfile_flag_names,
+\			g:smartfile_flag_values,
+\			g:sf_headerformat, '#'
+\		)",
+\		"template":"h2n"
+\	},
 \ 	"tex":
 \ 	{
 \ 		"extensions":["*.tex"],
