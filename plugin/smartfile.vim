@@ -96,6 +96,19 @@ let g:smartfile_rules =
 \ 		)",
 \ 		"template":"h2n"
 \ 	},
+\	"bash":
+\	{
+\		"extensions":["*.sh"],
+\		"comments":"b:#",
+\		"indent":"autoindent",
+\		"header":
+\		"smartfile#CreateHeader(
+\			g:smartfile_flag_names,
+\			g:smartfile_flag_values,
+\			g:sf_headerformat, '#'
+\		)",
+\		"template":"h2n"
+\	},
 \ 	"cpp":
 \ 	{
 \ 		"extensions":["*.{cc,cxx,cpp}"],
