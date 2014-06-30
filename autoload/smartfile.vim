@@ -24,16 +24,12 @@ function! smartfile#CreateHeader(names, values, format, ...)
 		let max = max([max, len(col) + 2 + len(a:names[c])])
 	endfor
 	
-	"let delta = &ts - max % &ts
-	"let delta = delta ? delta : &ts
 	for c in split(a:format, "**")
 		let len = len(col) + 2 + len(a:names[c])
-		let space = max - len + 1
-		"let tab = max + delta - len
-		"let tab = tab / &ts + (tab % &ts != 0)
+		let spaces = max - len + 1
 		exe "let var = " . a:values[c]
 		let buf = buf . col . " " . a:names[c] . ":" .
-			\ repeat(" ", space) . var . "\n"
+			\ repeat(" ", spaces) . var . "\n"
 	endfor
 	let buf = buf . (a:0 == 1 ? a:1 : a:3) . "\n"
 	return buf
