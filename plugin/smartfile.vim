@@ -1,8 +1,8 @@
 "
-" File Name:	smartfile.vim
-" Author:	Aditya Ramesh
-" Date:		05/30/2012
-" Contact:	_@adityaramesh.com
+" File Name: smartfile.vim
+" Author:    Aditya Ramesh
+" Date:      05/30/2012
+" Contact:   _@adityaramesh.com
 "
 " The default settings for the features managed by this plugin are those that
 " are specifed in the .vimrc file; this plugin only affects settings local to

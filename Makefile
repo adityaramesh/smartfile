@@ -1,8 +1,8 @@
 #
-# File Name:	Makefile
-# Author:	Aditya Ramesh
-# Date:		08/09/2012
-# Contact:	_@adityaramesh.com
+# File Name: Makefile
+# Author:    Aditya Ramesh
+# Date:	     08/09/2012
+# Contact:   _@adityaramesh.com
 #
 
 .PHONY : install uninstall

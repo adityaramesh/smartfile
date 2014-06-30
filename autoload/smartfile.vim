@@ -1,8 +1,8 @@
 "
-" File Name:	smartfile.vim
-" Author:	Aditya Ramesh
-" Date:		05/30/2012
-" Contact:	_@adityaramesh.com
+" File Name: smartfile.vim
+" Author:    Aditya Ramesh
+" Date:      05/30/2012
+" Contact:   _@adityaramesh.com
 "
 " This library script implements some functions used to generate various blocks
 " of text, such as headers and include guards.
