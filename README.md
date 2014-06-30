@@ -7,9 +7,10 @@
 
 # Introduction
 
-Smartfile is a Vim plugin that allows you to automate actions like:
+Smartfile is a Vim plugin that allows you to automate file-specific actions
+like:
 
-  - Generating file headers
+  - Generating headers
   - Setting the line and block comments
   - Changing the default identation mode
   - Setting the default position of the cursor
