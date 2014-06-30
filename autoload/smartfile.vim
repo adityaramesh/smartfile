@@ -28,7 +28,7 @@ function! smartfile#CreateHeader(names, values, format, ...)
 	"let delta = delta ? delta : &ts
 	for c in split(a:format, "**")
 		let len = len(col) + 2 + len(a:names[c])
-		let space = max - len + 1;
+		let space = max - len + 1
 		"let tab = max + delta - len
 		"let tab = tab / &ts + (tab % &ts != 0)
 		exe "let var = " . a:values[c]
