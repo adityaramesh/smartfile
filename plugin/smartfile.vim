@@ -291,6 +291,19 @@ let g:smartfile_rules =
 \			g:sf_headerformat,'\"'
 \		)",
 \		"template":"h2n"
+\	},
+\	"lua":
+\	{
+\		"extensions":["*.lua"],
+\		"comments":"b:--",
+\		"indent":"autoindent",
+\		"header":
+\		"smartfile#CreateHeader(
+\			g:smartfile_flag_names,
+\			g:smartfile_flag_values,
+\			g:sf_headerformat,'--'
+\		)",
+\		"template":"h2n"
 \	}
 \ }
 
